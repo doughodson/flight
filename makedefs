@@ -1,0 +1,24 @@
+
+# -----------------------------------------------------------------------------
+# Common Makefile configuration info
+# -----------------------------------------------------------------------------
+
+# location of dependiencies
+DEPS_INC_PATH=../deps/include
+DEPS_LIB_PATH=../deps/lib
+
+# add dependency include path
+CPPFLAGS += -I$(DEPS_INC_PATH)
+# sol2 looks for files here
+CPPFLAGS += -I$(DEPS_INC_PATH)/lua5.3
+# enable C++17 features
+CPPFLAGS += -std=c++17
+# optimization level
+CPPFLAGS += -O3
+
+# add dependency library path
+LDFLAGS += -L$(DEPS_LIB_PATH)
+
+# all libraries to link against
+LDFLAGS += -Bstatic -lSDL2 -Bstatic -lSDL2_image -Bstatic -llua -lpthread -ldl
+
