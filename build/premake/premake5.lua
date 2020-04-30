@@ -4,6 +4,7 @@
 -- Target of interest:
 --     vs2017     (Visual Studio 2017)
 --     vs2019     (Visual Studio 2019)
+--     gmake
 --
 
 -- we must have an ide/compiler specified
@@ -13,7 +14,7 @@ end
 
 LibWindows = {"Ws2_32", "Winmm", "comctl32", "gdi32", "iphlpapi"}
 
-workspace "flightgear_examples"
+workspace "flight"
 
    -- destination directory for generated solution/project files
    location ("../" .. _ACTION)
@@ -54,16 +55,17 @@ workspace "flightgear_examples"
       defines { "WIN32", "_DEBUG" }
 
 -- external flight dynamics model (sending UDP packets)
-project "net_fdm"
-   targetname "net_fdm"
-   targetdir "../../net_fdm"
-   debugdir "../../net_fdm"
+project "net_fdm-win"
+   targetname "net_fdm-win"
+   targetdir "../../net_fdm-win"
+   debugdir "../../net_fdm-win"
    files {
-      "../../net_fdm/**.h*",
-      "../../net_fdm/**.cpp"
+      "../../net_fdm-win/**.h*",
+      "../../net_fdm-win/**.cpp"
    }
    defines { "_CONSOLE" }
    filter "configurations:Release"
       links {LibWindows}
    filter "configurations:Debug"
       links {LibWindows}
+
