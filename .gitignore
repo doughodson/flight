@@ -4,4 +4,6 @@
 # compiled object files
 *.o
 
+# examples
+gameobject_03/gameobject
 
