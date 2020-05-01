@@ -2,10 +2,12 @@
 #
 include ../makedefs
 
-PGM = adi
+PGM = display
 
 OBJS = \
 	main.o \
+	Display.o \
+	Instrument.o \
 	Adi.o \
 	sdl_utils.o
 
@@ -17,3 +19,4 @@ $(PGM): $(OBJS)
 clean:
 	-rm -f *.o
 	-rm -f $(PGM)
+

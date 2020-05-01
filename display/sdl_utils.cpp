@@ -4,7 +4,7 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 
-#include "Adi.hpp"
+#include "Display.hpp"
 #include <iostream>
 
 namespace sdl_utils
@@ -17,14 +17,14 @@ SDL_Texture* load_texture(const char* filename)
       std::cout << "IMG_Load: " << IMG_GetError() << std::endl;
       exit(-1);
    }
-   SDL_Texture* texture = SDL_CreateTextureFromSurface(Adi::renderer, surface);
+   SDL_Texture* texture = SDL_CreateTextureFromSurface(Display::renderer, surface);
    SDL_FreeSurface(surface);
    return texture;
 }
 
 void draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest)
 {
-   SDL_RenderCopy(Adi::renderer, tex, &src, &dest);
+   SDL_RenderCopy(Display::renderer, tex, &src, &dest);
 }
 
 }
