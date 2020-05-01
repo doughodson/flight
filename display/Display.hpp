@@ -29,6 +29,7 @@ private:
    bool is_running{};
 
    std::unique_ptr<Instrument> adi{};
+   std::unique_ptr<Instrument> alt{};
 };
 
 

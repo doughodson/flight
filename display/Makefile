@@ -9,6 +9,7 @@ OBJS = \
 	Display.o \
 	Instrument.o \
 	Adi.o \
+	Alt.o \
 	sdl_utils.o
 
 all: $(PGM)

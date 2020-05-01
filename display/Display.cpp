@@ -8,6 +8,7 @@
 #include "sdl_utils.hpp"
 
 #include "Adi.hpp"
+#include "Alt.hpp"
 
 SDL_Renderer* Display::renderer{};
 SDL_Window* Display::window{};
@@ -45,7 +46,8 @@ Display::~Display()
 
 void Display::load_level()
 {
-   adi = std::make_unique<Adi>(100, 100);
+   adi = std::make_unique<Adi>(0, 0);
+   alt = std::make_unique<Alt>(241, 0);
 }
 
 void Display::handle_events()
@@ -64,11 +66,15 @@ void Display::handle_events()
 void Display::update(const float dt)
 {
    adi->update(dt);
+   alt->update(dt);
 }
 
 void Display::render()
 {
+   SDL_RenderClear(Display::renderer);
    adi->render();
+   alt->render();
+   SDL_RenderPresent(Display::renderer);
 }
 
 
