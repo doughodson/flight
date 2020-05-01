@@ -44,27 +44,11 @@ Adi::~Adi()
 
 void Adi::load_level()
 {
-/*
-   sol::table chopper_tbl = lua["gameobjs"]["chopper"];
-   sol::table tank_tbl    = lua["gameobjs"]["tank"];
-   sol::table pacman_tbl  = lua["gameobjs"]["pacman"];
-
-   auto chopper = std::make_unique<Chopper>(static_cast<float>(chopper_tbl["xpos"]),
-                                            static_cast<float>(chopper_tbl["ypos"]),
-                                            static_cast<float>(chopper_tbl["xvel"]),
-                                            static_cast<float>(chopper_tbl["yvel"]));
-   auto tank    = std::make_unique<Tank>(   static_cast<float>(tank_tbl["xpos"]),
-                                            static_cast<float>(tank_tbl["ypos"]),
-                                            static_cast<float>(tank_tbl["xvel"]),
-                                            static_cast<float>(tank_tbl["yvel"]));
-   auto pacman  = std::make_unique<Pacman>( static_cast<float>(pacman_tbl["xpos"]),
-                                            static_cast<float>(pacman_tbl["ypos"]),
-                                            static_cast<float>(pacman_tbl["xvel"]),
-                                            static_cast<float>(pacman_tbl["yvel"]));
-   game_objs.emplace_back(std::move(chopper));
-   game_objs.emplace_back(std::move(tank));
-   game_objs.emplace_back(std::move(pacman));
-*/
+   // load all textures associated with adi
+   texBack = sdl_utils::load_texture("../assets/images/instruments/adi/adi_back_240x240.png");
+   texFace = sdl_utils::load_texture("../assets/images/instruments/adi/adi_face_240x240.png");
+   texRing = sdl_utils::load_texture("../assets/images/instruments/adi/adi_ring_240x240.png");
+   texCase = sdl_utils::load_texture("../assets/images/instruments/adi/adi_case_240x240.png");
 }
 
 void Adi::handle_events()
@@ -82,17 +66,26 @@ void Adi::handle_events()
 
 void Adi::update(const float dt)
 {
-//   for (auto& i: game_objs) {
-//      i->update(dt);
-//   }
+   src_rect.x = 0;
+   src_rect.y = 0;
+   src_rect.h = 240;
+   src_rect.w = 240;
+
+   dest_rect.x = 0;
+   dest_rect.y = 0;
+   dest_rect.w = 240;
+   dest_rect.h = 240;
+
+   angle += .05;
 }
 
 void Adi::render()
 {
    SDL_RenderClear(renderer);
-//   for (auto& i: game_objs) {
-//      i->render();
-//   }
+   SDL_RenderCopyEx(Adi::renderer, texBack, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Adi::renderer, texFace, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Adi::renderer, texRing, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopy(Adi::renderer, texCase, &src_rect, &dest_rect);
    SDL_RenderPresent(renderer);
 }
 

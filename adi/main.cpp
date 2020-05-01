@@ -28,6 +28,7 @@ int main() {
       if (elapsed_time < delta_time) {
          SDL_Delay(static_cast<Uint32>(std::floor((delta_time - elapsed_time)/1000.0f)));  // (ms)
       }
+      std::cout << "." <<std::flush;
    }
    return 0;
 }

@@ -26,7 +26,15 @@ public:
 
 private:
    bool is_running{};
+   double angle{};
+
+   SDL_Texture* texBack{};
+   SDL_Texture* texFace{};
+   SDL_Texture* texRing{};
+   SDL_Texture* texCase{};
+   SDL_Rect src_rect, dest_rect;
 };
+
 
 #endif
 
