@@ -23,12 +23,10 @@ public:
 private:
    int xpos{};
    int ypos{};
+   double angle{};
 
-   SDL_Texture* texFace_1{};
-   SDL_Texture* texFace_2{};
-   SDL_Texture* texFace_3{};
-   SDL_Texture* texHand_1{};
-   SDL_Texture* texHand_2{};
+   SDL_Texture* texFace{};
+   SDL_Texture* texHand{};
    SDL_Texture* texCase{};
    SDL_Rect src_rect, dest_rect;
 };

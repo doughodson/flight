@@ -11,12 +11,9 @@
 Asi::Asi(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 {
    // load all textures associated with alt
-   texFace_1 = sdl_utils::load_texture("../assets/images/instruments/alt/alt_face_1.svg");
-   texFace_2 = sdl_utils::load_texture("../assets/images/instruments/alt/alt_face_2.svg");
-   texFace_3 = sdl_utils::load_texture("../assets/images/instruments/alt/alt_face_3.svg");
-   texHand_1 = sdl_utils::load_texture("../assets/images/instruments/alt/alt_hand_1.svg");
-   texHand_2 = sdl_utils::load_texture("../assets/images/instruments/alt/alt_hand_2.svg");
-   texCase = sdl_utils::load_texture("../assets/images/instruments/alt/alt_case.svg");
+   texFace = sdl_utils::load_texture("../assets/images/instruments/asi/asi_face.svg");
+   texHand = sdl_utils::load_texture("../assets/images/instruments/asi/asi_hand.svg");
+   texCase = sdl_utils::load_texture("../assets/images/instruments/asi/asi_case.svg");
 
    // initialize source and destination rects
    src_rect.x = 0;
@@ -32,25 +29,21 @@ Asi::Asi(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 
 Asi::~Asi()
 {
-   SDL_DestroyTexture(texFace_1);
-   SDL_DestroyTexture(texFace_2);
-   SDL_DestroyTexture(texFace_3);
-   SDL_DestroyTexture(texHand_1);
-   SDL_DestroyTexture(texHand_2);
+   SDL_DestroyTexture(texFace);
+   SDL_DestroyTexture(texHand);
    SDL_DestroyTexture(texCase);
 }
 
 void Asi::update(const float dt)
 {
+   angle += .2;
 }
 
 void Asi::render()
 {
-   SDL_RenderCopy(Display::renderer, texFace_1, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texFace_2, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texFace_3, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texHand_1, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texHand_2, &src_rect, &dest_rect);
+   SDL_RenderCopy(Display::renderer, texFace, &src_rect, &dest_rect);
+   //SDL_RenderCopy(Display::renderer, texHand, &src_rect, &dest_rect);
+   SDL_RenderCopyEx(Display::renderer, texHand, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
    SDL_RenderCopy(Display::renderer, texCase, &src_rect, &dest_rect);
 }
 

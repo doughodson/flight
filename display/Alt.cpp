@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 #include "SDL2/SDL_image.h"
 #include "Display.hpp"
@@ -42,16 +43,24 @@ Alt::~Alt()
 
 void Alt::update(const float dt)
 {
+   altitude += 5;
 }
 
 void Alt::render()
 {
-   SDL_RenderCopy(Display::renderer, texFace_1, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texFace_2, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texFace_3, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texHand_1, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texHand_2, &src_rect, &dest_rect);
-   SDL_RenderCopy(Display::renderer, texCase, &src_rect, &dest_rect);
+   int alt = std::ceil( altitude + 0.5 );
+
+   float angleH1{altitude * 0.036f};
+   float angleH2{(alt % 1000)*0.36f};
+   float angleF1{(pressure - 28.0f)*100.0f};
+   float angleF3{altitude * 0.0036f};
+
+   SDL_RenderCopyEx(Display::renderer, texFace_1, &src_rect, &dest_rect, -angleF1, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, texFace_2, &src_rect, &dest_rect,        0, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, texFace_3, &src_rect, &dest_rect, angleF3,  0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, texHand_1, &src_rect, &dest_rect, angleH1,  0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, texHand_2, &src_rect, &dest_rect, angleH2,  0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, texCase,   &src_rect, &dest_rect,       0,  0, SDL_FLIP_NONE);
 }
 
 

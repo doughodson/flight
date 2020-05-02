@@ -23,6 +23,8 @@ public:
 private:
    int xpos{};
    int ypos{};
+   float altitude{};
+   float pressure{28.0f};
 
    SDL_Texture* texFace_1{};
    SDL_Texture* texFace_2{};
