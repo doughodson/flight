@@ -11,6 +11,7 @@ OBJS = \
 	Adi.o \
 	Alt.o \
 	Asi.o \
+	Hsi.o \
 	sdl_utils.o
 
 all: $(PGM)

@@ -10,6 +10,7 @@
 #include "Adi.hpp"
 #include "Alt.hpp"
 #include "Asi.hpp"
+#include "Hsi.hpp"
 
 SDL_Renderer* Display::renderer{};
 SDL_Window* Display::window{};
@@ -50,6 +51,7 @@ void Display::load_level()
    adi = std::make_unique<Adi>(0, 0);
    alt = std::make_unique<Alt>(241, 0);
    asi = std::make_unique<Asi>(482, 0);
+   hsi = std::make_unique<Hsi>(0, 240);
 }
 
 void Display::handle_events()
@@ -70,6 +72,7 @@ void Display::update(const float dt)
    adi->update(dt);
    alt->update(dt);
    asi->update(dt);
+   hsi->update(dt);
 }
 
 void Display::render()
@@ -78,6 +81,7 @@ void Display::render()
    adi->render();
    alt->render();
    asi->render();
+   hsi->render();
    SDL_RenderPresent(Display::renderer);
 }
 
