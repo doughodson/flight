@@ -7,6 +7,10 @@
 
 #include "SDL2/SDL.h"
 
+//---------------------------------------------------
+// Class: Alt
+// Description: Barometric Altimeter
+//---------------------------------------------------
 class Alt: public Instrument
 {
 public:

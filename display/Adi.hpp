@@ -7,6 +7,10 @@
 
 #include "SDL2/SDL.h"
 
+//---------------------------------------------------
+// Class: Adi
+// Description: Attitude Direction Indicator
+//---------------------------------------------------
 class Adi: public Instrument
 {
 public:
