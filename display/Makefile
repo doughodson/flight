@@ -10,6 +10,7 @@ OBJS = \
 	Instrument.o \
 	Adi.o \
 	Alt.o \
+	Asi.o \
 	sdl_utils.o
 
 all: $(PGM)

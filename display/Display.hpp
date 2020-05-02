@@ -30,6 +30,7 @@ private:
 
    std::unique_ptr<Instrument> adi{};
    std::unique_ptr<Instrument> alt{};
+   std::unique_ptr<Instrument> asi{};
 };
 
 
