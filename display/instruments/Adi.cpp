@@ -11,10 +11,10 @@
 Adi::Adi(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 {
    // load all textures associated with adi
-   texBack = sdl_utils::load_texture("../assets/images/instruments/adi/adi_back.svg");
-   texFace = sdl_utils::load_texture("../assets/images/instruments/adi/adi_face.svg");
-   texRing = sdl_utils::load_texture("../assets/images/instruments/adi/adi_ring.svg");
-   texCase = sdl_utils::load_texture("../assets/images/instruments/adi/adi_case.svg");
+   tex_back = sdl_utils::load_texture("../assets/images/instruments/adi/adi_back.svg");
+   tex_face = sdl_utils::load_texture("../assets/images/instruments/adi/adi_face.svg");
+   tex_ring = sdl_utils::load_texture("../assets/images/instruments/adi/adi_ring.svg");
+   tex_case = sdl_utils::load_texture("../assets/images/instruments/adi/adi_case.svg");
 
    // initialize source and destination rects
    src_rect.x = 0;
@@ -30,10 +30,10 @@ Adi::Adi(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 
 Adi::~Adi()
 {
-   SDL_DestroyTexture(texBack);
-   SDL_DestroyTexture(texFace);
-   SDL_DestroyTexture(texRing);
-   SDL_DestroyTexture(texCase);
+   SDL_DestroyTexture(tex_back);
+   SDL_DestroyTexture(tex_face);
+   SDL_DestroyTexture(tex_ring);
+   SDL_DestroyTexture(tex_case);
 }
 
 void Adi::update(const float dt)
@@ -43,10 +43,10 @@ void Adi::update(const float dt)
 
 void Adi::render()
 {
-   SDL_RenderCopyEx(Display::renderer, texBack, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
-   SDL_RenderCopyEx(Display::renderer, texFace, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
-   SDL_RenderCopyEx(Display::renderer, texRing, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
-   SDL_RenderCopy(Display::renderer, texCase, &src_rect, &dest_rect);
+   SDL_RenderCopyEx(Display::renderer, tex_back, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, tex_face, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, tex_ring, &src_rect, &dest_rect, angle, 0, SDL_FLIP_NONE);
+   SDL_RenderCopyEx(Display::renderer, tex_case, &src_rect, &dest_rect, 0,     0, SDL_FLIP_NONE);
 }
 
 

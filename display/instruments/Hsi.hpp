@@ -25,8 +25,9 @@ private:
    int ypos{};
    float heading{};
 
-   SDL_Texture* texFace{};
-   SDL_Texture* texCase{};
+   SDL_Texture* tex_face{};
+   SDL_Texture* tex_case{};
+
    SDL_Rect src_rect, dest_rect;
 };
 

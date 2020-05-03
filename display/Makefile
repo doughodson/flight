@@ -12,7 +12,10 @@ OBJS = \
 	instruments/Adi.o \
 	instruments/Alt.o \
 	instruments/Asi.o \
-	instruments/Hsi.o
+	instruments/Hsi.o \
+	instruments/Nav.o \
+	instruments/Tc.o \
+	instruments/Vsi.o
 
 all: $(PGM)
 

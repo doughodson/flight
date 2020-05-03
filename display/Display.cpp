@@ -11,6 +11,8 @@
 #include "instruments/Alt.hpp"
 #include "instruments/Asi.hpp"
 #include "instruments/Hsi.hpp"
+#include "instruments/Tc.hpp"
+#include "instruments/Vsi.hpp"
 
 SDL_Renderer* Display::renderer{};
 SDL_Window* Display::window{};
@@ -49,9 +51,11 @@ Display::~Display()
 void Display::load_level()
 {
    adi = std::make_unique<Adi>(0, 0);
-   alt = std::make_unique<Alt>(241, 0);
-   asi = std::make_unique<Asi>(482, 0);
+   alt = std::make_unique<Alt>(240, 0);
+   asi = std::make_unique<Asi>(480, 0);
    hsi = std::make_unique<Hsi>(0, 240);
+   tc  = std::make_unique<Tc>(240, 240);
+   vsi = std::make_unique<Vsi>(480, 240);
 }
 
 void Display::handle_events()
@@ -73,6 +77,8 @@ void Display::update(const float dt)
    alt->update(dt);
    asi->update(dt);
    hsi->update(dt);
+   tc->update(dt);
+   vsi->update(dt);
 }
 
 void Display::render()
@@ -82,6 +88,8 @@ void Display::render()
    alt->render();
    asi->render();
    hsi->render();
+   tc->render();
+   vsi->render();
    SDL_RenderPresent(Display::renderer);
 }
 

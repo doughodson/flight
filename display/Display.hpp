@@ -32,6 +32,8 @@ private:
    std::unique_ptr<Instrument> alt{};
    std::unique_ptr<Instrument> asi{};
    std::unique_ptr<Instrument> hsi{};
+   std::unique_ptr<Instrument> tc{};
+   std::unique_ptr<Instrument> vsi{};
 };
 
 

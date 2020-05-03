@@ -1,6 +1,6 @@
 
-#ifndef __Adi_HPP__
-#define __Adi_HPP__
+#ifndef __Vsi_HPP__
+#define __Vsi_HPP__
 
 
 #include "../Instrument.hpp"
@@ -8,14 +8,14 @@
 #include "SDL2/SDL.h"
 
 //---------------------------------------------------
-// Class: Adi
-// Description: Attitude Direction Indicator
+// Class: Vsi
+// Description: Vertical Speed Indicator
 //---------------------------------------------------
-class Adi: public Instrument
+class Vsi: public Instrument
 {
 public:
-   Adi(int xpos, int ypos);
-   ~Adi();
+   Vsi(int xpos, int ypos);
+   ~Vsi();
 
    void update(const float dt) override;
    void render() override;
@@ -23,11 +23,10 @@ public:
 private:
    int xpos{};
    int ypos{};
-   double angle{};
+   float climb_rate{};
 
-   SDL_Texture* tex_back{};
    SDL_Texture* tex_face{};
-   SDL_Texture* tex_ring{};
+   SDL_Texture* tex_hand{};
    SDL_Texture* tex_case{};
 
    SDL_Rect src_rect, dest_rect;
