@@ -3,7 +3,7 @@
 #define __Alt_HPP__
 
 
-#include "Instrument.hpp"
+#include "../Instrument.hpp"
 
 #include "SDL2/SDL.h"
 

@@ -5,8 +5,8 @@
 #include <string>
 
 #include "SDL2/SDL_image.h"
-#include "Display.hpp"
-#include "sdl_utils.hpp"
+#include "../Display.hpp"
+#include "../sdl_utils.hpp"
 
 Hsi::Hsi(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 {

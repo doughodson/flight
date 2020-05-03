@@ -8,11 +8,11 @@ OBJS = \
 	main.o \
 	Display.o \
 	Instrument.o \
-	Adi.o \
-	Alt.o \
-	Asi.o \
-	Hsi.o \
-	sdl_utils.o
+	sdl_utils.o \
+	instruments/Adi.o \
+	instruments/Alt.o \
+	instruments/Asi.o \
+	instruments/Hsi.o
 
 all: $(PGM)
 
@@ -20,6 +20,6 @@ $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)
 
 clean:
-	-rm -f *.o
+	-rm -f *.o instruments/*.o
 	-rm -f $(PGM)
 

@@ -6,8 +6,8 @@
 #include <cmath>
 
 #include "SDL2/SDL_image.h"
-#include "Display.hpp"
-#include "sdl_utils.hpp"
+#include "../Display.hpp"
+#include "../sdl_utils.hpp"
 
 Alt::Alt(const int xpos, const int ypos): xpos(xpos), ypos(ypos)
 {

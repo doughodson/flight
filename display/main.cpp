@@ -2,7 +2,6 @@
 #include "SDL2/SDL.h"
 
 #include "Display.hpp"
-#include "Adi.hpp"
 
 #include <iostream>
 #include <memory>
@@ -15,7 +14,7 @@ int main() {
 
    display->load_level();
 
-   float fps{30};                     // frame rate (e.g., 30 frames per seconds)
+   float fps{10};                     // frame rate (e.g., 30 frames per seconds)
    float delta_time{1.0f/fps};        // in seconds (e.g., 30 Hz => 0.03333)
 
    std::cout << "Starting game loop" << std::endl;

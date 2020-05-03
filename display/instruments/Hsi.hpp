@@ -1,21 +1,21 @@
 
-#ifndef __Adi_HPP__
-#define __Adi_HPP__
+#ifndef __Hsi_HPP__
+#define __Hsi_HPP__
 
 
-#include "Instrument.hpp"
+#include "../Instrument.hpp"
 
 #include "SDL2/SDL.h"
 
 //---------------------------------------------------
-// Class: Adi
-// Description: Attitude Direction Indicator
+// Class: Hsi
+// Description: Horizonal Airspeed Indicator
 //---------------------------------------------------
-class Adi: public Instrument
+class Hsi: public Instrument
 {
 public:
-   Adi(int xpos, int ypos);
-   ~Adi();
+   Hsi(int xpos, int ypos);
+   ~Hsi();
 
    void update(const float dt) override;
    void render() override;
@@ -23,11 +23,9 @@ public:
 private:
    int xpos{};
    int ypos{};
-   double angle{};
+   float heading{};
 
-   SDL_Texture* texBack{};
    SDL_Texture* texFace{};
-   SDL_Texture* texRing{};
    SDL_Texture* texCase{};
    SDL_Rect src_rect, dest_rect;
 };

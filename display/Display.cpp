@@ -7,10 +7,10 @@
 #include "SDL2/SDL_image.h"
 #include "sdl_utils.hpp"
 
-#include "Adi.hpp"
-#include "Alt.hpp"
-#include "Asi.hpp"
-#include "Hsi.hpp"
+#include "instruments/Adi.hpp"
+#include "instruments/Alt.hpp"
+#include "instruments/Asi.hpp"
+#include "instruments/Hsi.hpp"
 
 SDL_Renderer* Display::renderer{};
 SDL_Window* Display::window{};
