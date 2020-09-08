@@ -56,6 +56,7 @@ workspace "flight"
 
 -- external flight dynamics model (sending UDP packets)
 project "net_fdm-win"
+   location ("../" .. _ACTION .. "/projects/%{prj.name}")
    targetname "net_fdm-win"
    targetdir "../../net_fdm-win"
    debugdir "../../net_fdm-win"
