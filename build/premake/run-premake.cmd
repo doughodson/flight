@@ -7,5 +7,5 @@ rmdir /S /Q ..\obj
 rem
 rem create solution/workspace files
 rem
-premake5-alpha14.exe --os=windows --file=premake5.lua vs2017
-premake5-alpha14.exe --os=windows --file=premake5.lua vs2019
+premake5-alpha15.exe --os=windows --file=premake5.lua vs2017
+premake5-alpha15.exe --os=windows --file=premake5.lua vs2019
